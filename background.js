@@ -25,6 +25,11 @@ chrome.tabs.onCreated.addListener(async () => {
             title: highestMemoryTab.title,
             memoryUsage: tabMemoryUsage[highestMemoryTab.id] || 0
           }
+        }, () => {
+          console.log('Data saved:', {
+            title: highestMemoryTab.title,
+            memoryUsage: tabMemoryUsage[highestMemoryTab.id] || 0
+          });
         });
       }
     }
