@@ -6,6 +6,7 @@
   "permissions": [
     "tabs",
     "processes",
+    "storage",
     "activeTab"
   ],
   "background": {
