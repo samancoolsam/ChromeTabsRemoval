@@ -1,29 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chrome Tabs Removal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 10px;
-        }
-        h1 {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        #highest-memory-tab {
-            margin-top: 10px;
-        }
-    </style>
+    <script src="popup.js" defer></script>
 </head>
 <body>
-    <h1>Tab with Highest Memory Usage</h1>
-    <div id="highest-memory-tab">
-        <p id="tab-title">Loading...</p>
-        <p id="tab-memory-usage"></p>
-    </div>
-    <script src="popup.js"></script>
+    <h1>Tab Memory Usage</h1>
+    <div id="dataDisplay"></div>
 </body>
 </html>
