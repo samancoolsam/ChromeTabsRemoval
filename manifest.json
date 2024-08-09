@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Chrome Tabs Removal",
   "version": "1.0",
   "description": "Highlight and manage tabs based on RAM usage.",
