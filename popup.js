@@ -1,22 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
-  chrome.storage.local.get('highestMemoryTab', function (data) {
-    if (data.highestMemoryTab) {
-      const tabTitleElement = document.getElementById('tab-title');
-      const memoryUsageElement = document.getElementById('tab-memory-usage');
-
-      tabTitleElement.textContent = `Title: ${data.highestMemoryTab.title}`;
-      memoryUsageElement.textContent = `Memory Usage: ${formatBytes(data.highestMemoryTab.memoryUsage)}`;
-    } else {
-      document.getElementById('tab-title').textContent = 'No data available';
-    }
-  });
+document.addEventListener('DOMContentLoaded', () => {
+    chrome.storage.local.get('highestMemoryTab', (data) => {
+        const displayDiv = document.getElementById('dataDisplay');
+        if (data.highestMemoryTab) {
+            displayDiv.innerHTML = `
+                <p><strong>Title:</strong> ${data.highestMemoryTab.title}</p>
+                <p><strong>Memory Usage:</strong> ${data.highestMemoryTab.memoryUsage.toFixed(2)} MB</p>
+            `;
+        } else {
+            displayDiv.innerHTML = '<p>No data available</p>';
+        }
+    });
 });
-
-function formatBytes(bytes, decimals = 2) {
-  if (bytes === 0) return '0 Bytes';
-  const k = 1024;
-  const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-}
