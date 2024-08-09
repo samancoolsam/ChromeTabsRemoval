@@ -1,8 +1,8 @@
-const MAX_TABS = 30;
+const MAX_TABS = 10;
 
 chrome.tabs.onCreated.addListener(async () => {
   try {
-    const tabs = await chrome.tabs.query({}); // Correct usage to get all tabs
+    const tabs = await chrome.tabs.query({});
 
     if (tabs.length > MAX_TABS) {
       const tabProcessIds = tabs.map(tab => tab.id);
